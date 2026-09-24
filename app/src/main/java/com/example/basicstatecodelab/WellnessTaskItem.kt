@@ -25,13 +25,14 @@ fun WellnessTaskItem(
     onCheckedChange: (Boolean) -> Unit,
     onClose: () -> Unit,
     modifier: Modifier = Modifier
-){
+) {
     Row(
-       modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
-    ){
+        modifier = modifier, verticalAlignment = Alignment.CenterVertically
+    ) {
         Text(
-            modifier = Modifier.weight(1f).padding(start = 16.dp),
+            modifier = Modifier
+                .weight(1f)
+                .padding(start = 16.dp),
             text = taskName
         )
         Checkbox(
@@ -42,17 +43,4 @@ fun WellnessTaskItem(
             Icon(Icons.Filled.Close, contentDescription = "Close")
         }
     }
-}
-
-@Composable
-fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier){
-    var checkedState by rememberSaveable { mutableStateOf(false) }
-
-    WellnessTaskItem(
-        taskName = taskName,
-        checked = checkedState,
-        onCheckedChange = {newValue -> checkedState = newValue},
-        onClose = {},
-        modifier = modifier
-    )
 }
